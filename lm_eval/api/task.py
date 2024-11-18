@@ -922,9 +922,11 @@ class ConfigurableTask(Task):
                     )
 
     def download(self, dataset_kwargs: Optional[Dict[str, Any]] = None) -> None:
+        print(F"loading from path:{self.DATASET_PATH}, name: {self.DATASET_NAME}")
         self.dataset = datasets.load_dataset(
             path=self.DATASET_PATH,
             name=self.DATASET_NAME,
+            download_mode='force_redownload',
             **dataset_kwargs if dataset_kwargs is not None else {},
         )
 
