@@ -926,7 +926,6 @@ class ConfigurableTask(Task):
         self.dataset = datasets.load_dataset(
             path=self.DATASET_PATH,
             name=self.DATASET_NAME,
-            download_mode='force_redownload',
             **dataset_kwargs if dataset_kwargs is not None else {},
         )
 
