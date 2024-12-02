@@ -1,0 +1,19 @@
+tag:
+  - context_reliance_mc
+task: context_reliance_resist_correction_odfewshot
+dataset_path: cyl/context_reliance_resist_correction_zeroshot
+output_type: multiple_choice
+test_split: test
+doc_to_text: !function utils.doc_to_od_fewshot_prompt
+doc_to_choice: !function utils.doc_to_choices
+doc_to_target: answer_index
+target_delimiter: ""
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0

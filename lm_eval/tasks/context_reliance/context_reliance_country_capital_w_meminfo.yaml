@@ -1,0 +1,3 @@
+include: _context_reliance_mc_yaml
+task: context_reliance_country_capital_w_meminfo
+dataset_path: cyl/context_reliance_country_capital_w_meminfo

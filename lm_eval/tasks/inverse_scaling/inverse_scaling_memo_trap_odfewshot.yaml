@@ -1,0 +1,4 @@
+include: _inverse_scaling_mc_yaml
+task: inverse_scaling_memo_trap_odfewshot
+dataset_path: Albertmade/memo-trap
+doc_to_text: !function utils.doc_to_od_fewshot_prompt

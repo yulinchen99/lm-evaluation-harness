@@ -1,0 +1,20 @@
+tag:
+  - context_reliance_mc
+task: context_reliance_counterfactual_popqa
+output_type: multiple_choice
+dataset_path: Samll/popqa_counterfactuals
+test_split: test
+process_docs: !function utils.filter_dataset
+doc_to_text: "{{counter_statement}}\nQuestion: {{question}}"
+doc_to_choice: !function utils.popqa_doc_to_choices
+doc_to_target: 1
+target_delimiter: ""
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0
