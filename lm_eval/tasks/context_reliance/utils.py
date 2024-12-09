@@ -23,7 +23,7 @@ def doc_to_od_fewshot_prompt(doc):
     random.shuffle(examples)
     return "\n".join(examples) + "\n" + doc['prompt']
 
-def generation_match(gold, pred):
-    gold = gold.strip().lower()
-    pred = pred.strip().lower()
+def generation_match(references, predictions):
+    gold = references[0].strip().lower()
+    pred = predictions[0].strip().lower()
     return int(gold in pred)
