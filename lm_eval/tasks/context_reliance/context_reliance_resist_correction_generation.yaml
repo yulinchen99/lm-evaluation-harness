@@ -1,0 +1,17 @@
+tag:
+  - context_reliance_mc
+task: context_reliance_resist_correction_generation
+dataset_path: cyl/context_reliance_resist_correction
+output_type: generate_until
+test_split: test
+doc_to_text: "{{prompt}}"
+doc_to_target: !function utils.doc_to_answer
+target_delimiter: ""
+metric_list:
+  - metric: !function utils.generation_match
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0
+
+

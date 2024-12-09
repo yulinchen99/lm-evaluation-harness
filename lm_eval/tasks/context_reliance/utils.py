@@ -1,7 +1,13 @@
 import datasets
 import random
+
+# PROMPT = "Ignore your prior knowledge and answer the following questions based on the provided context conly."
+
 def doc_to_choices(doc):
     return eval(doc["classes"])
+
+def doc_to_answer(doc):
+    return eval(doc["classes"])[doc["answer_index"]]
 
 def popqa_doc_to_choices(doc):
     return [eval(doc['possible_answers'])[0], doc["counter_answer"]]
@@ -16,4 +22,8 @@ def doc_to_od_fewshot_prompt(doc):
     ]
     random.shuffle(examples)
     return "\n".join(examples) + "\n" + doc['prompt']
-    
+
+def generation_match(gold, pred):
+    gold = gold.strip().lower()
+    pred = pred.strip().lower()
+    return int(gold in pred)
